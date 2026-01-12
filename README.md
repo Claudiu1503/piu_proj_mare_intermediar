@@ -1,16 +1,84 @@
-# React + Vite
+# PIU – Intranet Universitar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfață web (frontend) pentru o platformă internă universitară construită cu React și Vite. Aplicația include pagini pentru dashboard, cursuri, orar, note, anunțuri, mesagerie, cereri, documente, setări, precum și secțiuni pentru secretariat și cadre didactice.
 
-Currently, two official plugins are available:
+## Cerințe
+- Node.js 18 sau mai nou (recomandat 20+)
+- npm (vine împreună cu Node.js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Verifică versiunile instalate:
+```bash
+node -v
+npm -v
+```
 
-## React Compiler
+## Pornire rapidă (dezvoltare)
+1. Instalează dependențele:
+   ```bash
+   npm install
+   ```
+2. Pornește serverul de dezvoltare:
+   ```bash
+   npm run dev
+   ```
+3. Deschide aplicația în browser: http://localhost:5173 (portul implicit Vite)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Build de producție
+- Creează pachetul de producție:
+  ```bash
+  npm run build
+  ```
+- Rulează un preview local al build‑ului (simulează producția):
+  ```bash
+  npm run preview
+  ```
+  Implicit: http://localhost:4173
 
-## Expanding the ESLint configuration
+## Scripturi utile (din package.json)
+- `npm run dev` – pornește serverul Vite în mod dezvoltare
+- `npm run build` – generează bundle‑ul de producție în `dist/`
+- `npm run preview` – servește local build‑ul din `dist/`
+- `npm run lint` – rulează ESLint pe proiect
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Ce conține proiectul
+- React 19 + Vite 7 (bundler și dev server)
+- React Router (navigare între pagini)
+- lucide-react (set de icoane)
+- ESLint (reguli de calitate cod)
+
+Structură relevantă:
+- `src/main.jsx` – punct de intrare al aplicației React
+- `src/App.jsx` – rutele aplicației și învelișul temei
+- `src/components/Layout.jsx` – layout principal: header, meniu lateral, container conținut
+- `src/pages/` – paginile aplicației (exemple):
+  - `Dashboard.jsx` – pagina principală
+  - `Courses.jsx` – cursurile utilizatorului
+  - `Schedule.jsx` – orar
+  - `Grades.jsx` – note și rezultate
+  - `Announcements.jsx` – anunțuri
+  - `Messaging.jsx` – mesagerie internă
+  - `Requests.jsx` – cereri administrative
+  - `Documents.jsx` – documente / secretariat
+  - `StudentsManage.jsx` – gestionare studenți (secretariat)
+  - `Consultations.jsx` – consultații / întâlniri
+  - `CourseEvaluation.jsx` – evaluare curs
+  - `Evaluations.jsx` – evaluări
+  - `FeesAdmin.jsx` și `TaxPayments.jsx` – situație taxe și plăți
+  - `Admissions.jsx` – admitere
+  - `SettingsPage.jsx` – setări cont
+  - `Login.jsx`, `NotFound.jsx`, `Loading.jsx`
+- `public/` – resurse statice servite ca atare
+- `index.html` – șablonul HTML de bază folosit de Vite
+
+## Navigare (rute principale)
+- `/` – Dashboard
+- `/cursuri`, `/orar`, `/note`, `/anunturi`, `/mesaje`, `/cereri`, `/documente`, `/studenti`, `/consultatii`, `/evaluare`, `/evaluari`, `/situatie-taxe`, `/taxe`, `/admitere`, `/setari`
+- `/autentificare` – pagină de autentificare
+- orice altă rută – pagină „Not Found”
+
+## Sfaturi & depanare
+- Dacă portul 5173 este ocupat, Vite va alege automat alt port și îl va afișa în terminal.
+- Pe Windows, rulează comenzile în PowerShell sau Command Prompt.
+
+## Licență
+Proiect educațional/demonstrativ. Actualizează această secțiune conform nevoilor tale.
